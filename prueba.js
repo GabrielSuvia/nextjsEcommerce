@@ -190,7 +190,7 @@ console.log(reverseLinkedList(head))
 console.log(isValidParentheses(cadena))
     /*
 ----------------------------
-//11/10/2024
+//13/10/2024
 5. Trees (Árboles)
 Ejercicios:
 
@@ -247,7 +247,7 @@ class BinaryTree {
         return this.searchNode(this.root, value);
     }
 
-    searchNode(node, value) {
+    searchNode(node, value) {//busca el nodo en el que se encuentra ese valor
         if (!node) return null;
         if (value < node.value) return this.searchNode(node.left, value);
         else if (value > node.value) return this.searchNode(node.right, value);

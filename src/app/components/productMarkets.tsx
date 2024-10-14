@@ -1,5 +1,6 @@
 'use client';
 import { userSett } from "@/context/loginContext";
+import { wrap } from "module";
 import Link from "next/link"
 import React from "react"
 
@@ -30,17 +31,18 @@ const handleBuying = (id:number)=>{
 }
 
     return(<>
-    <ul>
+    <div className="container" style={{display:'flex', flexWrap: 'wrap', gap:'100px', position:'relative',left:'200px'}}>
     {product.map((prod,index)=>{
-        return (<li  key={index}>
+        return (<div  key={index} data-testid="product-name">
 
-         <h1>Product:<Link href={`/pages/products/${index+1}`}>{prod.name}</Link></h1>  
+         <h2>Product:<Link style={{textDecoration:'none'}} href={`/pages/products/${index+1}`}>{prod.name}</Link></h2>  
             <p>Price:{prod.price}</p>
+            <img src="" alt="NH" />
             <p>Description:{prod.description}</p>
             {user?<button onClick={()=>handleBuying(index)}>Add</button>:""} 
-           </li>)
+           </div>)
     })}
-    </ul>
+    </div>
     
     </>)
 }

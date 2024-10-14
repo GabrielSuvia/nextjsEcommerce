@@ -24,14 +24,19 @@ const handleFilter = (category:string)=>{
         setProduct([...filterProduct])
 }
 
-    return (<>
-        <h1>the best products of the markets</h1>
-        <SearchProducts/>
+    return (<div className="main-Conteiner" style={{background:'lightblue', minHeight: '100vh', position:'relative'}}>
 
-        <div>
-            <div>
+        <h1>the best products of the markets</h1>
+       
+        <div style={{display:'flex', justifyContent:'center', position:'relative',left:'-300px'}}>
+
+        
         <h1>Category of products</h1>
-         <ul>
+       
+    
+         <ul style={{position:'relative', right:'-50px', top:'20px'}}>
+         <SearchProducts/>
+         <br />
          <li>
                <button onClick={()=>handleFilter('All')} >All</button> 
         </li>
@@ -47,9 +52,10 @@ const handleFilter = (category:string)=>{
             <button onClick={()=>handleFilter('accesorios')} >Accesorios</button> 
             </li>
          </ul>
-         </div>
-   <MarketProduct product ={product.length> 0?product:loadProduct}/> 
+        
+         <MarketProduct product ={product.length> 0?product:loadProduct}/> 
+        
         </div>
-        </>)
+        </div>)
 }
 export default Products;

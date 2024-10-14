@@ -44,7 +44,7 @@ const onSubmit = async (data:ILoginData)=>{
     {errors.password && <p>{errors.password.message}</p>}
 </div>
 
-<button type="submit" id="btn1" disabled={isSubmitting}>{isSubmitting?'Logging in...':'Login'}</button>
+<button type="submit" id="btn1" className="btn btn-primary" disabled={isSubmitting}>{isSubmitting?'Logging in...':'Login'}</button>
 </form>
 <p>do you have an account?<Link id="link" href="/pages/register">signup</Link> </p>
     </div>)

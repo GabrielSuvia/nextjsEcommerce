@@ -7,7 +7,6 @@ export interface User{
     password:string;
 }
 
-
 interface arrayChangeUser{
     user: User;
     setUser: React.Dispatch<React.SetStateAction<User>>;
@@ -20,17 +19,13 @@ export const UserContext = createContext<arrayChangeUser | undefined>({user:{
 
 }, setUser:(e)=>{},cart:[],setCart:(e)=>{}});//initial valuea
 
-
 export const ContextUser : React.FC <{ children: React.ReactNode }> = ({ children }) =>{
 
     const [user, setUser] = useState<User>({
         email:"",
         password:"",
-
     })
-
     const [cart, setCart] = useState<string[]>([])
-
     return (
     <UserContext.Provider value={{user,setUser,cart,setCart}}>
        {children}

@@ -16,17 +16,17 @@ const router = useRouter()
 
 
 
-return (<nav>
-<Link href="/">Home</Link>
-<Link href="/pages/about">About</Link>
-<Link href="/pages/products">Products</Link>
+return (<nav className="navbar navbar-light bg-primary sticky-top" >
+<Link  className="nav-link" href="/">Home</Link>
+<Link className="nav-link" href="/pages/about">About</Link>
+<Link className="nav-link" href="/pages/products">Products</Link>
 {!user.email? (<>
-<Link href="/pages/register">Register</Link>
-<Link href="/pages/login">Login</Link> 
+<Link className="nav-link" href="/pages/register">Register</Link>
+<Link className="nav-link" href="/pages/login">Login</Link> 
 </>): 
 (<>
-<Link href="/pages/mycarts">Mycarts</Link>
-<button onClick={handleUser}>Logout</button>
+<Link className="nav-link" href="/pages/mycarts">Mycarts</Link>
+<button className="btn btn-primary" onClick={handleUser}>Logout</button>
 </>)}
 
 </nav>
