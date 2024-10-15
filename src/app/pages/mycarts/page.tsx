@@ -15,14 +15,21 @@ const MyCarts = ()=>{//en react  node not use object
      //mostrar modal
      setOptionModal(true)
     }
-    return (<>
-     
+    return (<div style={{background:'lightblue', minHeight: '100vh'}}>
+    <div style={{border:'2px solid black', width:'500px', position:'relative', left:'0px', display:'flex'}}>
+
+     <div>
         <h1>My shooping cart</h1>
        <MyCart/>
        <br/>
        <br/>
+       <div style={{width:'500px', textAlign:'center'}}>
        <button onClick={handleSendProducts}>confirm purchase</button>
+       </div>
        <ModalCarts closeModal={closeModal} optionModal={optionModal} />
-        </> )
+    </div>
+
+        </div> 
+        </div>)
 }
 export default MyCarts;
