@@ -30,23 +30,24 @@ const onSubmit = async (data:ILoginData)=>{
 }
     return(<div data-testid="login-auth">
 
-<form onSubmit={handleSubmit(onSubmit)}>
+<form className="container mt-3" onSubmit={handleSubmit(onSubmit)} >
 
-<div>
+<div className="mb-3" style={{textAlign:'center'}}>
     <label htmlFor="email">email</label>
-    <input type="email" id="email" {...register("email")} />
+    <input type="email" id="email" {...register("email")} style={{ width: '250px' }}/>
     {errors.email && <p>{errors.email.message}</p>}
 </div>
 
-<div>
+<div className="mb-3" style={{textAlign:'center'}}>
     <label htmlFor="password">password</label>
-    <input type="password" id="password" {...register("password")} />
+    <input type="password" id="password" {...register("password")} style={{ width: '250px' }} />
     {errors.password && <p>{errors.password.message}</p>}
 </div>
-
+<div style={{ textAlign: 'center' }}>
 <button type="submit" id="btn1" className="btn btn-primary" disabled={isSubmitting}>{isSubmitting?'Logging in...':'Login'}</button>
+</div>
 </form>
-<p>do you have an account?<Link id="link" href="/pages/register">signup</Link> </p>
+<p style={{textAlign:'center'}}>do you have an account?<Link id="link" href="/pages/register">signup</Link> </p>
     </div>)
 
 }
