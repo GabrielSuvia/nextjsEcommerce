@@ -1,6 +1,5 @@
 'use client';
-import { userSett } from "@/context/loginContext";
-import { wrap } from "module";
+import { ICart, userSett } from "@/context/loginContext";
 import Link from "next/link"
 import React from "react"
 
@@ -12,21 +11,21 @@ export interface Iproduct{
     description:string;
 }
 export interface Iarr{
-      product: Iproduct[]
+      product: ICart[]
 }
 
 export const MarketProduct: React.FC<Iarr> = ({product})=>{
 //render each product
 const {user,cart,setCart} = userSett()
-
-const handleBuying = (id:number)=>{
+//objeto
+const handleBuying = (product:ICart)=>{
     if(user.email === ""){
         alert('have to register you first');
          return;
     };
     console.log('SetCartAAA')
         //add al contexto
-   user.email?  setCart([...cart,String(id)]):""
+   user.email?  setCart([...cart,product]):""
     
 }
 
@@ -39,7 +38,8 @@ const handleBuying = (id:number)=>{
             <p>Price:{prod.price}</p>
             <img src="" alt="NH" />
             <p>Description:{prod.description}</p>
-            {user?<button onClick={()=>handleBuying(index)}>Add</button>:""} 
+            {user?<button onClick={()=>handleBuying(prod)}>Add</button>:""} 
+            <br />
            </div>)
     })}
     </div>

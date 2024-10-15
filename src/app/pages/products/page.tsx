@@ -2,25 +2,25 @@
 import React, {useState } from "react";
 import { MarketProduct } from "@/app/components/productMarkets";
 import SearchProducts  from "../../components/search";
-import { Iproduct } from "@/app/components/productMarkets";
+import { ICart } from "@/context/loginContext";
 const Products = ()=>{
 
-const loadProduct:Iproduct[] = [{name:"celular A1",price:"34", modelo:"xy", category:"celular", description:"dasdda"},
-    {name:"celular S2",price:"34", modelo:"xy", category:"celular", description:"dasdda"},
-    {name:"television",price:"31", modelo:"x4y", category:"television", description:"dasdda"},
-    {name:"television",price:"31", modelo:"3t", category:"television", description:"dasdda"},
-    {name:"teclado",price:"31", modelo:"xyc", category:"accesorios", description:"dasdda"},
-    {name:"mouse",price:"31", modelo:"xyx", category:"accesorios", description:"dasdda"},
-    {name:"monitor",price:"31", modelo:"xyd", category:"accesorios", description:"dasdda"}]
+const loadProduct:ICart[] = [{id:'sad2-d234-342w-dsf4',name:"celular A1",  description:"dasdda",price:"34", stock:20, imgUrl:"celular",categoryid:"celular"},
+    {id:'sad2-d234-342w-d1f4',name:"celular A1",  description:"dasddada",price:"131", stock:20, imgUrl:"celular",categoryid:"celular"},
+    {id:'sad2-d234-342w-34f4',name:"celular B1",  description:"dasddasd",price:"123", stock:20, imgUrl:"celular",categoryid:"calular"},
+    {id:'sad2-d234-342w-43f4',name:"televisor C1",  description:"dasddaasd",price:"110", stock:20, imgUrl:"celular",categoryid:"television"},
+    {id:'sad2-d234-342w-r3f4',name:"televisor D1",  description:"dasddaasd",price:"156", stock:20, imgUrl:"celular",categoryid:"television"},
+    {id:'sad2-d234-342w-4ff4',name:"accesorio E1",  description:"dasddasa",price:"178", stock:20, imgUrl:"celular",categoryid:"accesorios"},
+    {id:'sad2-d234-342w-h6f4',name:"accesorio F1",  description:"dasddsda",price:"198", stock:20, imgUrl:"celular",categoryid:"accesorios"}]
 
-const [product, setProduct] = useState<Iproduct[] | []>([])
+const [product, setProduct] = useState<ICart[] | []>([])
 //fetching axios: productos estaticoss
 
 const handleFilter = (category:string)=>{
     if(category === "All"){
         setProduct([...loadProduct])
     };
-        const filterProduct = loadProduct.filter((prod)=> prod.category ===category ) 
+        const filterProduct = loadProduct.filter((prod)=> prod.categoryid ===category ) 
         setProduct([...filterProduct])
 }
 

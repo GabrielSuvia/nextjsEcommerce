@@ -19,6 +19,8 @@ const MyCarts = ()=>{//en react  node not use object
      
         <h1>My shooping cart</h1>
        <MyCart/>
+       <br/>
+       <br/>
        <button onClick={handleSendProducts}>confirm purchase</button>
        <ModalCarts closeModal={closeModal} optionModal={optionModal} />
         </> )
