@@ -1,11 +1,12 @@
 'use client';
 import React, { useEffect, useState } from "react"
 import { userSett } from "@/context/loginContext";
+import { BotonCart } from "./botonCart";
 
 export const MyCart: React.FC = ()=>{
   //arreglo de pedidos del cliente
   const [total, setTotal] = useState(0)
-  const {cart, setCart} = userSett();
+  const {cart} = userSett();
 
   const sumaTotal = ()=>{
    let tot=0;
@@ -14,20 +15,11 @@ export const MyCart: React.FC = ()=>{
    })
    return tot
   }
+
   useEffect(()=>{
     setTotal(sumaTotal)
   },[total,cart])
   
-console.log(total)
-  const handleDelete = (id:number)=>{
-    console.log("handleDelete",id)
-    //use id of del prod
-   const prodDelete = cart.filter((prodId,index)=>index !== id)
-   console.log("prodDelete",prodDelete)
-   setCart([...prodDelete])
-  }
-  
-//setCart(listProduct)//setCart, can not change the state and rendered in the same time
 console.log(cart)
     return(<>
     <ul>
@@ -41,10 +33,9 @@ console.log(cart)
 
           <div style={{display:'flex'}}>
             <li key={index}> {prod.name} </li>
-            <p style={{position:'relative',left:'90px'}}>{prod.price}</p>
+            <p style={{position:'absolute',left:'190px'}}>{prod.price}</p>
           </div>
-
-            <button onClick={()=>handleDelete(index)}>delete</button>
+          <BotonCart index={index} />
             </div>)
       })}
       {total != 0? (<div style={{display:'flex'}}>
