@@ -1,10 +1,10 @@
+'use client';
 import { useState } from "react"
 import { userSett } from "@/context/loginContext"
 
 interface IIndex{
     index:number
 }
-
 export const BotonCart :React.FC<IIndex> = ({index})=>{
 const [changecolor, setChangeColor] = useState<any>(null)
 const {setCart,cart} = userSett()

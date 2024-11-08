@@ -1,3 +1,5 @@
+/// <reference types="cypress"/> 
+//no necesary
 describe('Login',()=>{
 
     it('placing the value in input',()=>{

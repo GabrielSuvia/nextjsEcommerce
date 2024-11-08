@@ -1,3 +1,4 @@
+import { FetchToDb } from '@/app/helpers/fetchToApi';
 import { NextRequest, NextResponse } from 'next/server';
 // Define el tipo de datos para la respuest
 
@@ -5,7 +6,10 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function POST (req:NextRequest){
 const body = await req.json()
 try {
+    console.log('1',body)
+    const api = 'http://localhost:3003/auth/signup'
     //enviar a la api del back
+    await FetchToDb(api,'POST',body)
 console.log("usario registrado",body)
 return NextResponse.json({body:body},{status:200})
 } catch (error) {

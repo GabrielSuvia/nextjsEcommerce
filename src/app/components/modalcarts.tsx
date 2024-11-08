@@ -36,13 +36,16 @@ console.log("modalCarts",cartUser)
 
     return(<div style={{background:'Beige', position:'relative', left:'350px', top:'-220px', border:'2px solid black'}}>
     <button onClick={closeModal} style={{position:'relative', left:'440px'}} >cerrar</button>
+
      <div>
-<p style={{textAlign:'center'}}>do you want to confirm purchases</p>
-<div style={{display:'flex', justifyContent:'space-evenly'}}>
-<button onClick={()=>handleAsk('yes')}>Yes</button>
-<button onClick={()=>handleAsk('no')}>No</button>
-</div>
+
+         <p style={{textAlign:'center'}}>do you want to confirm purchases</p>
+         <div style={{display:'flex', justifyContent:'space-evenly'}}>
+         <button onClick={()=>handleAsk('yes')}>Yes</button>
+         <button onClick={()=>handleAsk('no')}>No</button>
+
+    </div>
      </div>
-    </div>)
+     </div>)
 
 }
