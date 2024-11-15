@@ -8,13 +8,7 @@ const Products = ()=>{
 const [dataBefore, setDataBefore] = useState<ICart[]>([]);
 const [data , setData] = useState<ICart[] | []>([])
 
-/* = [{id:'sad2-d234-342w-dsf4',name:"celular A1",  description:"dasdda",price:"34", stock:20, imgUrl:"celular",categoryid:"celular"},
-    {id:'sad2-d234-342w-d1f4',name:"celular A1",  description:"dasddada",price:"131", stock:20, imgUrl:"celular",categoryid:"celular"},
-    {id:'sad2-d234-342w-34f4',name:"celular B1",  description:"dasddasd",price:"123", stock:20, imgUrl:"celular",categoryid:"calular"},
-    {id:'sad2-d234-342w-43f4',name:"televisor C1",  description:"dasddaasd",price:"110", stock:20, imgUrl:"celular",categoryid:"television"},
-    {id:'sad2-d234-342w-r3f4',name:"televisor D1",  description:"dasddaasd",price:"156", stock:20, imgUrl:"celular",categoryid:"television"},
-    {id:'sad2-d234-342w-4ff4',name:"accesorio E1",  description:"dasddasa",price:"178", stock:20, imgUrl:"celular",categoryid:"accesorios"},
-    {id:'sad2-d234-342w-h6f4',name:"accesorio F1",  description:"dasddsda",price:"198", stock:20, imgUrl:"celular",categoryid:"accesorios"}]
+/* = [{id:'sad2-d234-342w-dsf4',name:"celular A1",  description:"dasdda",price:"34", stock:20, imgUrl:"celular",categoryid:"celular"},]
 */
 useEffect(()=> {
 const urlBack ='http://localhost:3000/api/Products';
@@ -24,9 +18,8 @@ const fet = async()=>{
     if(!response.ok){  
        throw new Error(`Error: ${response.status}`);
     }
-       const b = await response.json();
-       console.log(b,"bbbbb")
-       setData(b.product)
+       const dato = await response.json();
+       setData(dato.product)
        
     } catch (error) {
         console.log(error)
