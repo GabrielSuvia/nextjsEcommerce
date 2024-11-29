@@ -9,12 +9,11 @@ if(!timeToker) return;
 const expirationDate = timeToker
 console.log(expirationDate,"Time given")
 
-
 const now = new Date().getTime();
 
 if(now >= expirationDate){
   
-    setUser({email:"",password:""})
+    setUser({userId:"",email:"",password:""})
     router.push('/') 
 }else{
     console.log("contando.....")
