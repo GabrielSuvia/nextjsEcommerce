@@ -29,7 +29,7 @@ const handleFilter = (category:string)=>{
 
         console.log("false")
         if(data.length > 0 && category ===""){ 
-            const filterProduct = data.filter((prod)=> prod.categoryid ===category ) 
+            const filterProduct = data.filter((prod)=> prod.categoryid.name ===category ) 
             setData([...filterProduct])
            }else{
            
@@ -40,7 +40,7 @@ const handleFilter = (category:string)=>{
                 const data = await response.json();
                 console.log("result")
                 setData([...data.rest])
-                  Router.push(`/pages/products?query=${encodeURIComponent(query.trim())}`)
+                 // Router.push(`/pages/products?query=${encodeURIComponent(query.trim())}`)
                 
                 }
                 functionFetch();
