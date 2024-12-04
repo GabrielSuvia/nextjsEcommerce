@@ -3,56 +3,72 @@ import React, {useEffect, useState } from "react";
 import { MarketProduct } from "@/app/components/productMarkets";
 import SearchProducts  from "../../components/search";
 import { ICart } from "@/context/loginContext";
-import Router from "next/router";
 
+interface ICategories{
+    id:string;
+    name:string;
+    date:Date;
+}
 const Products = ()  =>{
 
 const [data , setData] = useState<ICart[] | []>([])
+const [longData, setLongData] = useState<ICart[]>([])
+const [validateArr, setValidateArr] = useState<string[]>([])
 
-const fetchData = async () => {
-    const urlBack ='http://localhost:3003/Products' 
+const urlProduct ='http://localhost:3003/Products';
+const urlCategories ='http://localhost:3003/categories'; 
+
+const fetchData = async (urlBack:string) => {
+    
     try {
         const res = await fetch(urlBack);
         if(!res.ok){
             throw new Error('Error server');
         };
         const response = await res.json();
-        setData(response.products)
+
+        if(urlBack === urlProduct){
+            setData([...response.products])
+            setLongData([...response.products])
+        }else{
+           const categoriesList = response.categories.map((cat:ICategories)=> cat.name)
+          setValidateArr([...categoriesList])
+        }
+            
     } catch (error) {
-        throw new Error('There is an error')
-    }
+        throw new Error('There is an error') }
 };
+useEffect(()=> {
+       fetchData(urlProduct);
+       fetchData(urlCategories)
+},[])
 
-const handleFilter = (category:string)=>{
-      fetchData();
-    if((category !== "All")){
-
-        console.log("false")
-        if(data.length > 0 && category ===""){ 
-            const filterProduct = data.filter((prod)=> prod.categoryid.name ===category ) 
+const handleFilter = async (category:string)=>{
+    if(data.length < longData.length){
+     await fetchData(urlProduct);
+    }
+    
+    if(category !== "All" ){
+        if(validateArr.includes(category)){ 
+            //filter for category
+            const filterProduct = longData.filter((prod)=> {console.log("prod",prod.categoryid.name,"===", category) ;
+            return prod.categoryid.name ===category }) 
             setData([...filterProduct])
            }else{
-           
+
             if(category !== ""){
+                //Searching of data
                 const query = category
                const functionFetch = async ()=>{
                 const response = await fetch(`/api/searchPro?query=${encodeURIComponent(query.trim())}`)
-                const data = await response.json();
-                console.log("result")
-                setData([...data.rest])
-                 // Router.push(`/pages/products?query=${encodeURIComponent(query.trim())}`)
-                
+                const searchProduc = await response.json();
+                setData([...searchProduc.rest])
                 }
-                functionFetch();
-           }
-       }
-    }    
+               await functionFetch();
+           };
+    }
+  }
 }
-
-useEffect(()=> {
-    fetchData();
-},[])
-  //     minHeight: '100vh'
     return (<div className="main-Conteiner" style={{background:'lightblue', minHeight: '100vh', position:'relative', margin:'0px'}}>
             
         <h1>the best products of the markets</h1>
@@ -62,19 +78,20 @@ useEffect(()=> {
          <ul style={{position:'relative', right:'-50px', top:'20px'}}>
          <SearchProducts handleFilter={handleFilter}/>
          <br />
-         <li>
+            <li>
                <button onClick={()=>handleFilter('All')} >All</button> 
-        </li>
-            <li>
-               <button onClick={()=>handleFilter('celular')} >Celular</button> 
             </li>
-
             <li>
-            <button onClick={()=>handleFilter('television')} >Television</button> 
+               <button onClick={()=>handleFilter('smartphone')} >Smartphone</button> 
             </li>
- 
             <li>
-            <button onClick={()=>handleFilter('accesorios')} >Accesorios</button> 
+            <button onClick={()=>handleFilter('mouse')} >Mouse</button> 
+            </li>
+            <li>
+            <button onClick={()=>handleFilter('keyboard')} >Keyboard</button> 
+            </li>
+            <li>
+            <button onClick={()=>handleFilter('monitor')} >Monitor</button> 
             </li>
          </ul>
          <MarketProduct data ={data.length> 0?data:[]}/> 
