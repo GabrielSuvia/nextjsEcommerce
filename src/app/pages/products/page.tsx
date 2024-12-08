@@ -17,16 +17,14 @@ const [validateArr, setValidateArr] = useState<string[]>([])
 
 const urlProduct ='http://localhost:3003/Products';
 const urlCategories ='http://localhost:3003/categories'; 
-
+//function of fetch
 const fetchData = async (urlBack:string) => {
-    
     try {
         const res = await fetch(urlBack);
         if(!res.ok){
             throw new Error('Error server');
         };
         const response = await res.json();
-
         if(urlBack === urlProduct){
             setData([...response.products])
             setLongData([...response.products])
@@ -34,15 +32,15 @@ const fetchData = async (urlBack:string) => {
            const categoriesList = response.categories.map((cat:ICategories)=> cat.name)
           setValidateArr([...categoriesList])
         }
-            
     } catch (error) {
         throw new Error('There is an error') }
 };
+//load of list's products
 useEffect(()=> {
        fetchData(urlProduct);
        fetchData(urlCategories)
 },[])
-
+//Filter or search product
 const handleFilter = async (category:string)=>{
     if(data.length < longData.length){
      await fetchData(urlProduct);

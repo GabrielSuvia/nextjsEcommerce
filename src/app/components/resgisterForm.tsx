@@ -18,7 +18,7 @@ const router = useRouter()
         })
 
     const onSubmit =async (data:IFormData)=>{
-   // e.preventDefault(); not necesary
+   // e.preventDefault(); not necessary
     console.log("datos enviados...",data)
     const Url = 'http://localhost:3000/api/Register'
     const datos =await FetchToDb(Url,'POST',data)

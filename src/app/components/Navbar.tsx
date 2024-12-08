@@ -10,10 +10,11 @@ const router = useRouter()
 
    const handleUser = ()=>{
       //exit user
-        setUser({email:"",password:""})
+        setUser({userId:"",email:"",password:""})
        router.push('/') 
    }
 
+console.log(user.email, "Navbar")
 
 
 return (<nav className="navbar navbar-light bg-primary sticky-top" >

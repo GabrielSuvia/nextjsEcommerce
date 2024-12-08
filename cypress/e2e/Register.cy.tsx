@@ -1,7 +1,6 @@
 describe('Register', () => {
   it('put the value in the input ', () => {
     cy.visit('http://localhost:3000/pages/register')
-    //cy.contains('type').click()//asdsd
     //show the input
     cy.get('input[id="email"]').type('testuser@example.com')
     cy.get('input[id="name"]').type('jose123')
@@ -11,8 +10,6 @@ describe('Register', () => {
     cy.get('input[id="phone"]').type('3558292929')
     cy.get('input[id="country"]').type('thebestplace')
     cy.get('input[id="city"]').type('thebestcity')
-   // cy.get('button#btn').click();
-   // cy.get('form').submit();
   })
   it('verify the button and the signin',()=>{
     cy.visit('http://localhost:3000/pages/register')

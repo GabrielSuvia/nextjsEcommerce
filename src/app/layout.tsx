@@ -1,4 +1,3 @@
-// app/layout.tsx
 'use client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';

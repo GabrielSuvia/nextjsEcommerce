@@ -9,9 +9,6 @@ export const BotonCart :React.FC<IIndex> = ({index})=>{
 const [changecolor, setChangeColor] = useState<any>(null)
 const {setCart,cart} = userSett()
 
-const changeColorButton = (indexOrColor:any)=>{
-   setChangeColor(indexOrColor)
-}
 const handleDelete = (id:number)=>{
     const prodDelete = cart.filter((prodId,index)=>index !== id)
     console.log("prodDelete",prodDelete)

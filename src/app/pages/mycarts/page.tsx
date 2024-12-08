@@ -15,9 +15,9 @@ const MyCarts = ()=>{//en react  node not use object
      //mostrar modal
      setOptionModal(true)
     }
+    
     return (<div style={{background:'lightblue', minHeight: '100vh'}}>
     <div style={{border:'2px solid black', width:'500px', position:'relative', left:'0px', display:'flex'}}>
-
      <div>
         <h1>My shooping cart</h1>
        <MyCart/>

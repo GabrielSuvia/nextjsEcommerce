@@ -3,6 +3,7 @@ import React, { ReactNode } from "react";
 import { useState,useContext, createContext } from "react"
 
 export interface User{
+    userId:String,
     email:string;
     password:string;
 }
@@ -23,7 +24,9 @@ interface arrayChangeUser{
     cart: ICart[];
     setCart: React.Dispatch<React.SetStateAction<ICart[]>>;
 }
+
 export const UserContext = createContext<arrayChangeUser | undefined>({user:{
+    userId:"",
     email:"",
     password:"",
 
@@ -32,6 +35,7 @@ export const UserContext = createContext<arrayChangeUser | undefined>({user:{
 export const ContextUser : React.FC <{ children: React.ReactNode }> = ({ children }) =>{
 
     const [user, setUser] = useState<User>({
+        userId:"",
         email:"",
         password:"",
     })
@@ -50,3 +54,9 @@ export function userSett(){
     }
     return contex;
 }
+export default {
+    user: { email: '', password: '' },
+    setUser: () => {},
+    cart: [],
+    setCart: () => {},
+  };

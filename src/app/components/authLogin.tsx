@@ -7,12 +7,12 @@ import { userSett } from "@/context/loginContext";
 import { useRouter } from "next/navigation";
 import { FetchToDb } from "../helpers/fetchToApi";
 import Link from "next/link";
-import { CheckTokenExpiration } from "../helpers/validateJwt";
+import { CheckTokenExpiration } from "../helpers/validatejwt";
 
 export const LoginAuth  = ()=>{
 const [timeToker, setTimeToker] = useState<number>(0)
-const[status, setStatus] = useState(false)
-const {user,setUser} = userSett();
+const[status] = useState(false)
+const {setUser} = userSett();
 const Router = useRouter();
 
 const {register,
@@ -22,36 +22,34 @@ const {register,
      resolver:yupResolver(schema),
      mode:'onChange'
 })
-
+//fetch the user
 const onSubmit = async (data:ILoginData)=>{
     try {
         const url = 'http://localhost:3000/api/Auth';
    const responseApi = await FetchToDb(url,'POST',data)
    console.log('Login response',responseApi.user.user)
-   setTimeToker(responseApi.user.token.user.timeToker)
-   setUser(responseApi.user.user)
+   setTimeToker(responseApi.user.token)
+   setUser(responseApi.user.user)//MODIFICAR CONTEXT CON ID
    
    Router.push('/')
 
     } catch (error) {
+        alert("User or password incorrect")
         console.log(error)
     }
-    //handle the time toker
 }
-
 useEffect(()=>{
+    //handle the time toker
    if(timeToker !== 0){
     let time = timeToker + new Date().getTime();
     console.log(time,timeToker,"reding checkToken")
      CheckTokenExpiration(time,setUser,Router)
-      
    }
 },[timeToker,status])
 
-    return(<div data-testid="login-auth">
+return(<div data-testid="login-auth">
 
 <form className="container mt-3" onSubmit={handleSubmit(onSubmit)} >
-
 <div className="mb-3" style={{textAlign:'center'}}>
     <label htmlFor="email">email</label>
     <input type="email" id="email" {...register("email")} style={{ width: '250px' }}/>

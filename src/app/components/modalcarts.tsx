@@ -10,24 +10,24 @@ export const ModalCarts: React.FC<IoptionModal> = ({closeModal,optionModal})=>{
 
 if (!optionModal) return null;
 const {cart,user,setCart} = userSett()
-const cartUser = {cart,user}
+const productId = cart.map((prod)=> prod.id )
+const cartUser = {user:user.userId,cart:productId}
 
 console.log("modalCarts",cartUser)
 
-    const handleAsk = (ask:string)=>{
+    const handleAsk = async (ask:string)=>{
         if(ask==="yes"){
             //enviar lista de compra a la db
             const activeFunction=async()=>{
             const url='/api/Mycarts'
             const response = await FetchToDb(url,'POST',cartUser)
-                 
             const dataResponsive = response
-            console.log("MODALCARTS:",dataResponsive.data);
+            console.log("MODALCARTS:",dataResponsive.dato);
             setCart([])
            //the details of buying (views) useRouter() with data of your credit target
            closeModal();
         }
-        activeFunction();
+       await activeFunction();
 
         }else{
          closeModal()
