@@ -25,7 +25,7 @@ const {register,
 //fetch the user
 const onSubmit = async (data:ILoginData)=>{
     try {
-        const url = 'http://localhost:3000/api/Auth';
+        const url = `http://localhost:3000/api/Auth`;
    const responseApi = await FetchToDb(url,'POST',data)
    console.log('Login response',responseApi.user.user)
    setTimeToker(responseApi.user.token)

@@ -1,4 +1,5 @@
 import { FetchToDb } from '@/app/helpers/fetchToApi';
+import { pathBackend } from '@/app/helpers/pathBackend';
 import { NextRequest, NextResponse } from 'next/server';
 // Define el tipo de datos para la respuest
 
@@ -7,7 +8,7 @@ export async function POST (req:NextRequest){
 const body = await req.json()
 try {
     console.log('1',body)
-    const api = 'http://localhost:3003/auth/signup'
+    const api = `${pathBackend}/auth/signup`
     //enviar a la api del back
     await FetchToDb(api,'POST',body)
 console.log("usario registrado",body)

@@ -1,4 +1,4 @@
-import { FetchToDb } from "@/app/helpers/fetchToApi";
+import { pathBackend } from "@/app/helpers/pathBackend";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST (req:NextRequest){
@@ -6,7 +6,7 @@ export async function POST (req:NextRequest){
 try {
    const info = await req.json();
   const orderInfo = {userId:info.user,products:info.cart}
-   const urlServer = 'http://localhost:3003/orders/create'
+   const urlServer = `${pathBackend}/orders/create`
    const order = await fetch(urlServer,{
       method:'POST',
       headers:{'Content-Type':'application/json'},

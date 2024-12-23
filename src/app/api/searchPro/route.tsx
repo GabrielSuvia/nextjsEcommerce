@@ -1,4 +1,5 @@
 import { Iproduct } from "@/app/components/productMarkets"
+import { pathBackend } from "@/app/helpers/pathBackend"
 import { NextRequest, NextResponse } from "next/server"
 
 export async function GET (req:NextRequest,res:NextResponse){
@@ -6,7 +7,7 @@ export async function GET (req:NextRequest,res:NextResponse){
     const {searchParams} = new URL(req.url)
     const query = searchParams.get('query')
 try {
-    const url = 'http://localhost:3003/Products'
+    const url = `${pathBackend}/Products`
     const respons = await fetch(url)
     const productList = await respons.json()
     const product = productList.products

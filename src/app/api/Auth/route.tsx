@@ -1,3 +1,4 @@
+import { pathBackend } from "@/app/helpers/pathBackend";
 import { NextRequest, NextResponse } from "next/server";
 //solicitado a la db bckend
 export async function POST(req:NextRequest){
@@ -5,7 +6,7 @@ export async function POST(req:NextRequest){
 const userLogin = await req.json()//email,password
 console.log(userLogin,"Comunicacion de la ruta")
 try {
-    const urlSign = 'http://localhost:3003/auth/signin';
+    const urlSign = `${pathBackend}/auth/signin`;
 
     const token = await fetch(urlSign,{
       method:'POST',

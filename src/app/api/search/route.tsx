@@ -1,12 +1,13 @@
+import { pathBackend } from "@/app/helpers/pathBackend";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req:NextRequest){
-const {searchParams} = new URL(req.url);//key searchParams
+//const {searchParams} = new URL(req.url);//key searchParams
 const prodId = await req.json();
 
 console.log("pasando query")
 try {
-    const url = `http://localhost:3003/Products/${prodId}`
+    const url = `${pathBackend}/Products/${prodId}`
     const productsfound = await fetch(url)
 
     if(!productsfound.ok){

@@ -1,0 +1,1 @@
+export const pathBackend = 'http://localhost:3003';

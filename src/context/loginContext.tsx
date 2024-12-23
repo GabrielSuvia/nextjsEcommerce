@@ -1,7 +1,7 @@
 'use client';
-import React, { ReactNode } from "react";
+import React from "react";
 import { useState,useContext, createContext } from "react"
-
+//inciso a,c, d: uso de unkown instead any, e,f
 export interface User{
     userId:String,
     email:string;

@@ -33,7 +33,7 @@ console.log("modalCarts",cartUser)
          closeModal()
         }
     }
-
+    
     return(<div style={{background:'Beige', position:'relative', left:'350px', top:'-220px', border:'2px solid black'}}>
     <button onClick={closeModal} style={{position:'relative', left:'440px'}} >cerrar</button>
 

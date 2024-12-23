@@ -3,6 +3,8 @@ import React, {useEffect, useState } from "react";
 import { MarketProduct } from "@/app/components/productMarkets";
 import SearchProducts  from "../../components/search";
 import { ICart } from "@/context/loginContext";
+import { pathBackend } from "@/app/helpers/pathBackend";
+import path from "path";
 
 interface ICategories{
     id:string;
@@ -15,8 +17,8 @@ const [data , setData] = useState<ICart[] | []>([])
 const [longData, setLongData] = useState<ICart[]>([])
 const [validateArr, setValidateArr] = useState<string[]>([])
 
-const urlProduct ='http://localhost:3003/Products';
-const urlCategories ='http://localhost:3003/categories'; 
+const urlProduct =`${pathBackend}/Products`;
+const urlCategories =`${pathBackend}/categories`; 
 //function of fetch
 const fetchData = async (urlBack:string) => {
     try {
