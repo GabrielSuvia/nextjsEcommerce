@@ -3,13 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "cypress": "cypress open",
-    "dev": "next dev",
-    "test": "jest Modal.test.tsx",
-    "test:watch": "jest --watch",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
