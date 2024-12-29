@@ -69,10 +69,10 @@ const handleFilter = async (category:string)=>{
     }
   }
 }
-    return (<div className="main-Conteiner" style={{background:'lightblue', minHeight: '100vh', position:'relative', margin:'0px'}}>
+    return (<div className="main-Conteiner" style={{background:'lightblue', minHeight: '100vh', position:'relative', margin:'0px', padding:'10px'}}>
             
         <h1>the best products of the markets</h1>
-        <div style={{display:'flex', justifyContent:'center', position:'relative',left:'-300px'}}>
+        <div style={{display:'flex', justifyContent:'center', position:'relative',left:'-300px',height:'100%'}}>
         <h1>Category of products</h1>
 
          <ul style={{position:'relative', right:'-50px', top:'20px'}}>

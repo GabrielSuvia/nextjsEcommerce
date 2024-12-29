@@ -3,6 +3,7 @@ import { Iproduct } from "@/app/components/productMarkets";
 import { FetchToDb } from "@/app/helpers/fetchToApi";
 import { useParams } from "next/navigation";
 import {useEffect, useState } from "react";
+import styles from '../../../components/footer.module.css'
 
 const ProductDetail = ()=>{
     const [product, setproduct] = useState<Iproduct>({
@@ -32,12 +33,12 @@ useEffect(()=>{
 },[])
 console.log("pageProductId",product)
 
-    return (<>
+    return (<div className={styles.product}>
     <h1>Detail of Product: {product.name}</h1>
           <p>Price:{product.price}</p>
           <img src={product.imgUrl} alt="NH" />
           <p>Description:{product.description}</p>
-    </>)
+    </div>)
 
 }
 export default ProductDetail

@@ -3,9 +3,7 @@ import img2 from "../../../assets/imagenes/img2.jpg"
 
 const Home: React.FC = ()=>{
 
-return (<>
-
-<div className="d-flex flex-column align-items-center justify-content-center" style={{background:'lightblue'}} >
+return (<div className="d-flex flex-column align-items-center justify-content-center" style={{background:'lightblue'}} >
 
 <h1 className="mb-4">the best products of the world</h1>
 <div className="col-md-4 text-center">
@@ -26,8 +24,7 @@ return (<>
        intentar atraerlos</p>
        </div>
 </div>
-
-</>)
+)
 
 
 }
