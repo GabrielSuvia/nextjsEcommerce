@@ -4,7 +4,6 @@ import { MarketProduct } from "@/app/components/productMarkets";
 import SearchProducts  from "../../components/search";
 import { ICart } from "@/context/loginContext";
 import { pathBackend } from "@/app/helpers/pathBackend";
-import path from "path";
 
 interface ICategories{
     id:string;
