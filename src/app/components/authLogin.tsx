@@ -47,7 +47,6 @@ useEffect(()=>{
    }
 },[timeToker,status])
 
-console.log(process.env.PATHBACK,process.env.PORT,"environment")
 return(<div data-testid="login-auth">
 
 <form className="container mt-3" onSubmit={handleSubmit(onSubmit)} >
