@@ -25,7 +25,7 @@ const {register,
 //fetch the user
 const onSubmit = async (data:ILoginData)=>{
     try {
-        const url = `http://localhost:3000/api/Auth`;
+        const url = `/api/Auth`;
    const responseApi = await FetchToDb(url,'POST',data)
    console.log('Login response',responseApi.user.user)
    setTimeToker(responseApi.user.token)
@@ -47,6 +47,7 @@ useEffect(()=>{
    }
 },[timeToker,status])
 
+console.log(process.env.PATHBACK,process.env.PORT,"environment")
 return(<div data-testid="login-auth">
 
 <form className="container mt-3" onSubmit={handleSubmit(onSubmit)} >

@@ -20,7 +20,7 @@ const router = useRouter()
     const onSubmit =async (data:IFormData)=>{
    // e.preventDefault(); not necessary
     console.log("datos enviados...",data)
-    const Url = 'http://localhost:3000/api/Register'
+    const Url = '/api/Register'
     const datos =await FetchToDb(Url,'POST',data)
     console.log("info",datos.body)
     router.push('/pages/login')
