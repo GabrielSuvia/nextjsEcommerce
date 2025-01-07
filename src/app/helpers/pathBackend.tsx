@@ -1,1 +1,1 @@
-export const pathBackend = 'http://localhost:3003';
+export const pathBackend = 'https://nestjsecommerce-production.up.railway.app';
