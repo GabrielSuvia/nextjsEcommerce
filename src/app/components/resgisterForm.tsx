@@ -6,7 +6,7 @@ import { IFormData, schema } from "../helpers/validationRegister";
 import {FetchToDb} from '../helpers/fetchToApi';
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { pathBackend } from "../helpers/pathBackend";
+import { pathBackend, pathFront } from "../helpers/pathBackend";
 
 export const RegisterForm = ()=>{
 const router = useRouter()
@@ -21,10 +21,10 @@ const router = useRouter()
     const onSubmit =async (data:IFormData)=>{
    // e.preventDefault(); not necessary
     console.log("datos enviados...",data)
-    const Url = `${pathBackend}/api/Register`
+    const Url = `${pathFront}/api/Register`
     const datos =await FetchToDb(Url,'POST',data)
     console.log("info",datos.body)
-    router.push(`${pathBackend}/pages/login`)
+    router.push(`${pathFront}/pages/login`)
 
     }
 
