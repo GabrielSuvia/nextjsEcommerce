@@ -19,7 +19,7 @@ console.log("modalCarts",cartUser)
         if(ask==="yes"){
             //enviar lista de compra a la db
             const activeFunction=async()=>{
-            const url='/api/Mycarts'
+            const url='https://nextjsecommerce-production.up.railway.app/api/Mycarts'
             const response = await FetchToDb(url,'POST',cartUser)
             const dataResponsive = response
             console.log("MODALCARTS:",dataResponsive.dato);
