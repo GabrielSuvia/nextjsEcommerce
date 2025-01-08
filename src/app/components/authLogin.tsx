@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { FetchToDb } from "../helpers/fetchToApi";
 import Link from "next/link";
 import { CheckTokenExpiration } from "../helpers/validatejwt";
+import { pathFront } from "../helpers/pathBackend";
 
 export const LoginAuth  = ()=>{
 const [timeToker, setTimeToker] = useState<number>(0)
@@ -26,7 +27,7 @@ const {register,
 const onSubmit = async (data:ILoginData)=>{
     try {
         console.log("falla Entrante");
-        const url = 'https://nextjsecommerce-production.up.railway.app/api/Auth';
+        const url = `${pathFront}/api/Auth`;
    const responseApi = await FetchToDb(url,'POST',data)
    console.log('Login response',responseApi.user.user)
    setTimeToker(responseApi.user.token)

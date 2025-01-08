@@ -6,6 +6,7 @@ import { IFormData, schema } from "../helpers/validationRegister";
 import {FetchToDb} from '../helpers/fetchToApi';
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { pathFront } from "../helpers/pathBackend";
 
 export const RegisterForm = ()=>{
 const router = useRouter()
@@ -20,10 +21,10 @@ const router = useRouter()
     const onSubmit =async (data:IFormData)=>{
    // e.preventDefault(); not necessary
     console.log("datos enviados...",data)
-    const Url = 'https://nextjsecommerce-production.up.railway.app/api/Register'
+    const Url = `${pathFront}/api/Register`
     const datos =await FetchToDb(Url,'POST',data)
     console.log("info",datos.body)
-    router.push('https://nextjsecommerce-production.up.railway.app/pages/login')
+    router.push(`${pathFront}/pages/login`)
 
     }
 
