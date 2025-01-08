@@ -6,7 +6,7 @@ export async function POST(req:NextRequest){
 const userLogin = await req.json()//email,password
 console.log(userLogin,"Comunicacion de la ruta")
 try {
-    const urlSign = `${pathBackend}/auth/signin`;
+    const urlSign = `https://nestjsecommerce-production.up.railway.app/auth/signin`;
 
     const token = await fetch(urlSign,{
       method:'POST',
