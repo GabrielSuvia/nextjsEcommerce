@@ -25,6 +25,7 @@ const {register,
 //fetch the user
 const onSubmit = async (data:ILoginData)=>{
     try {
+        console.log("falla Entrante");
         const url = 'https://nextjsecommerce-production.up.railway.app/api/Auth';
    const responseApi = await FetchToDb(url,'POST',data)
    console.log('Login response',responseApi.user.user)
