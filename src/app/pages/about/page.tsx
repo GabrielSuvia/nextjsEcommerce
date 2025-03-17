@@ -57,5 +57,5 @@ const About = ()=>{
         </section>
       );
 }
-
+export const runtime = "edge";
 export default About;
