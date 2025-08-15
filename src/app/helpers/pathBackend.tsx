@@ -1,2 +1,2 @@
-export const pathBackend = "https://nestjsecommerce-production.up.railway.app";
-export const pathFront = 'https://nextjsecommerce-production.up.railway.app/';
+export const pathBackend = "https://6l5f5sc6-3001.brs.devtunnels.ms"// "https://nestjsecommerce-production.up.railway.app";
+export const pathFront = "https://6l5f5sc6-3000.brs.devtunnels.ms"//'https://nextjsecommerce-production.up.railway.app/';

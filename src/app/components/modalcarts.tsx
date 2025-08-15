@@ -18,12 +18,21 @@ console.log("modalCarts",cartUser)
 
     const handleAsk = async (ask:string)=>{
         if(ask==="yes"){
+            if(cart.length === 0){
+              alert("you need to add products")
+              return;
+            }
+            localStorage.setItem('user',JSON.stringify(user))
             //enviar lista de compra a la db
             const activeFunction=async()=>{
             const url=`${pathFront}/api/Mycarts`
             const response = await FetchToDb(url,'POST',cartUser)
-            const dataResponsive = response
-            console.log("MODALCARTS:",dataResponsive.dato);
+            //receive the url 
+            const dataResponsive = response.data
+ console.log("RESPUESTA",dataResponsive.url)
+            //i redirect to the page of succes to show the characteristics of the products
+            //windows.alert = response.data.url
+           window.location = dataResponsive.url;
             setCart([])
            //the details of buying (views) useRouter() with data of your credit target
            closeModal();

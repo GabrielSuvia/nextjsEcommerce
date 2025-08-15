@@ -21,6 +21,7 @@ export const MyCart: React.FC = ()=>{
   },[total,cart])
   
 console.log(cart)
+
     return(<>
     <ul>
       <br />

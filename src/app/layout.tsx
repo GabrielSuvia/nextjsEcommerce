@@ -1,19 +1,21 @@
 'use client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { ContextUser } from '@/context/loginContext';
 import { Navbar } from './components/Navbar';
+import { Footer } from './components/footer';
+import './globals.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-
+//revisar contextUser of state
   return (
     <html>
-      <body>
-        <ContextUser>
+    <body>
         <Navbar/>
+        <main>
           {children}
-        </ContextUser>
-      </body>
-    </html>
+        </main>
+        <Footer/>
+  </body>
+  </html>
   );
 }

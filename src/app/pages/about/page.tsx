@@ -3,8 +3,7 @@ import img4 from '../../../assets/imagenes/img4.jpg'
 
 const About = ()=>{
     return (
-      <section className="about-section text-white" style={{ backgroundImage: `url(${img4.src})`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '100px 0' }}>
-        <div className="container">
+        <div className="main-Conteiner">
           <header>
             <h1 >Sobre Nosotros</h1>
             <p className="text-muted">Conoce la historia y los valores de nuestra tienda en línea.</p>
@@ -54,7 +53,7 @@ const About = ()=>{
             <p>Si tienes alguna pregunta, no dudes en ponerte en contacto con nosotros a través de <a href="mailto:info@tienda.com">info@tienda.com</a>.</p>
           </section>
         </div>
-        </section>
+    
       );
 }
 

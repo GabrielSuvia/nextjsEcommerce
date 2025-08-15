@@ -28,7 +28,7 @@ const router = useRouter()
 
     }
 
-return (<div>
+return (
 <form className="container mt-3" onSubmit={handleSubmit(onSubmit)}  style={{maxWidth: '400px', margin: '0 auto'}}>
 
 <div className="mb-3" style={{textAlign:'center'}}>
@@ -83,6 +83,5 @@ return (<div>
 <p style={{textAlign:'center'}}>do you have an account?<Link id="link" href="/pages/login">signin</Link> </p>
 </div>
 </form>
-
-</div> )}
+ )}
 

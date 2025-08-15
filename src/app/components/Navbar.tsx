@@ -17,7 +17,7 @@ const router = useRouter()
 console.log(user.email, "Navbar")
 
 
-return (<nav className="navbar navbar-light bg-primary sticky-top" >
+return (<nav className="navbar navbar-light bg-primary sticky-top fs-5 text-white" style={{ height: '70px' }} >
 <Link  className="nav-link" href="/">Home</Link>
 <Link className="nav-link" href="/pages/about">About</Link>
 <Link className="nav-link" href="/pages/products">Products</Link>
